@@ -1,0 +1,10 @@
+eta_batt_sd,0.999993055556
+eta_batt_char,0.9
+eta_batt_dis,0.92
+K_batt,4.16666666667
+P_batt_char_max,3.3
+P_batt_dis_max,3.3
+SOC_batt_ini,50.0
+Cap_batt,4.0
+SOC_batt_max,100.0
+SOC_batt_min,20.0
