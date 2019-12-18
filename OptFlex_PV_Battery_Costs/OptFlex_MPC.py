@@ -1,4 +1,4 @@
-b# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Tue Sep 15 21:21:28 2015
 26.10.2015 Prepare for Jahressimulations
@@ -35,16 +35,16 @@ def MPC():
     start_date = '8/2/2013'    
     end_date = '8/3/2013'
     date_year = '1/1/2013'
-    PrHoBin = 72  #72;      
+    PrHoBin = 72  #72;
     inputFile = "LPG"
     #inputFile = "VDE"
     #-----------------------------------------------
     
-    print '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
-    print '%                                                  %'
-    print '%         Optimierung von PV-Battery nach KOSTEN   %'     
-    print '%                                                  %'
-    print '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+    print (('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'))
+    print (('%                                                  %'))
+    print (('%         Optimierung von PV-Battery nach KOSTEN   %'))
+    print (('%                                                  %'))
+    print (('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'))
     
 
     
@@ -52,7 +52,7 @@ def MPC():
     helpdf = pd.date_range(start_date, end_date, freq='D') 
     numberOfdays = len(helpdf)
     if numberOfdays <= 0:
-        print 'ERROR: Dates are wrong. Please check. Calculating days in August....'
+        print ('ERROR: Dates are wrong. Please check. Calculating days in August....')
         start_date = '8/11/2013'    
         end_date = '8/12/2013'
 
@@ -62,12 +62,12 @@ def MPC():
         year_bins = 52560
         PrHoBinRange = range(0, PrHoBin)  # PredHorizonBin
     else:
-        print 'ERROR: Implemented only for 10 min Bins.'
+        print ('ERROR: Implemented only for 10 min Bins.')
                 
-    print 'Calculating the time period: ', start_date, 'to', end_date
-    print 'for', numberOfdays, 'days'
-    print 'Year: ', date_year
-    year_stamps = pd.date_range(date_year, periods=year_bins, freq=TimeStepSize)  
+    print ('Calculating the time period: ', start_date, 'to', end_date)
+    print ('for', numberOfdays, 'days')
+    print ('Year: ', date_year)
+    year_stamps = pd.date_range(date_year, periods=year_bins, freq=TimeStepSize)
                     
     # -------------------------------------------------------------------------
     # Get Input Parameter
@@ -93,12 +93,12 @@ def MPC():
     # -------------------------------------------------------------------------
     # FORECAST  Values -- Tagespersistenz
     # -------------------------------------------------------------------------
-    print 'Forecast-Method: Tagespersistenz.'
+    print ('Forecast-Method: Tagespersistenz.')
     # -- Use for Tagespersistenz
     day_stamps_fore = day_stamps_date - pd.DateOffset(days=1) 
     date_fore = day_stamps_fore[0].strftime('%m/%d/%Y')
     date_fore_end = day_stamps_fore[BIN-1].strftime('%m/%d/%Y')
-    #print date_fore, date_fore_end    
+    #print (date_fore, date_fore_end)
     # ----  Load
     LPF = LoadAll_TOT_df[date_fore:date_fore_end] 
     LoadPeriodFore =LPF.set_index(day_stamps_date) # Re-index
@@ -106,8 +106,8 @@ def MPC():
     # ----- PV 
     PVPF = PVava_TOT_df[date_fore:date_fore_end]
     PVavaPeriodFore = PVPF.set_index(day_stamps_date) # Re-index
-    #print day_stamps_fore
-    #print day_stamps_date
+    #print (day_stamps_fore)
+    #print (day_stamps_date)
     
     # -------------------------------------------------------------------------        
     # --- Plot differenz Forecast-Real Values
@@ -168,11 +168,11 @@ def MPC():
     
     maxx = len(PVavaPeriodFore)-PrHoBin
     if len(PVavaPeriodFore)-PrHoBin < 0:
-        print 'Prediction Horizon out of Range!!!'
+        print ('Prediction Horizon out of Range!!!')
     else:        
         maxx = 144
         for timestep in range(0, maxx):    
-            print timestep, maxx, BIN#, [Result_Corr_End.index[timestep]]
+            print (timestep, maxx, BIN)#, [Result_Corr_End.index[timestep]]
             # -----------------------------------------------------------------            
             # ------------------ Initialize for the next step ---------------------
             # -----------------------------------------------------------------            
@@ -205,7 +205,7 @@ def MPC():
 #                                    -Opt_Result['P_PV2load']], axis=1)
 #            if timestep==1 or timestep==maxx*0.5 or timestep==maxx-1:
 #                 Result_df.plot()
-#                 #print Opt_Result['P_PV']
+#                 #print (Opt_Result['P_PV'])
 # 
 #==============================================================================
             # -----------------------------------------------------------------            
@@ -302,7 +302,7 @@ def MPC():
     Result_BAT_End.to_csv('Results\Kosten_Results_BAT_End.csv')    
     
     
-    print "The End!"
+    print ("The End!")
     return 0
 
     

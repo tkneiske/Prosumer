@@ -25,7 +25,7 @@ def inputvalues_VDE_EFH(Delta_t,  TimeStepSize,year_stamps):
      QLoad1_df = pd.DataFrame(QLoad*0.5, index=year_stamps, columns=['QLoad1'])    
      QLoad2_df = pd.DataFrame(QLoad*0.5, index=year_stamps, columns=['QLoad2'])    
      LoadAll_TOT_df = pd.concat([ELoad_df, QLoad1_df, QLoad2_df], axis=1)
-     #print LoadAll_df['ELoad'].values
+     #print (LoadAll_df['ELoad'].values
      P_Load_max=10
      # ---------------------------------------------     
      ######## there is no necessity to scale 
@@ -82,15 +82,15 @@ def inputvalues_VDE_EFH(Delta_t,  TimeStepSize,year_stamps):
      P_batt_dis_max,SOC_batt_ini, Cap_batt, SOC_batt_max, SOC_batt_min], \
      index=['eta_batt_sd','eta_batt_char','eta_batt_dis' ,'K_batt', 'P_batt_char_max' ,\
      'P_batt_dis_max','SOC_batt_ini', 'Cap_batt', 'SOC_batt_max', 'SOC_batt_min'])
-     print '----------------------------'     
-     print '     Battery parameter:'
-     print '----------------------------'     
-     print Battery
-     print '----------------------------'     
-     print '     Load and PV:           '
-     print '----------------------------'     
-     print 'P_PV_max:', P_PV_max
-     print 'P_Load_max:', P_Load_max
+     print ('----------------------------')
+     print ('     Battery parameter:')
+     print ('----------------------------')
+     print (Battery)
+     print ('----------------------------' )
+     print ('     Load and PV:           ')
+     print ('----------------------------')
+     print ('P_PV_max:', P_PV_max)
+     print ('P_Load_max:', P_Load_max)
                                      
          # ---------------------------------------------    
      #       Kosten 
@@ -143,10 +143,10 @@ def inputvalues_VDE_EFH(Delta_t,  TimeStepSize,year_stamps):
      
      Costs = pd.Series([C_CHP_FIT, C_CHP_ex, C_gas, C_grid_el, C_CHP_cs, C_PV_FIT, C_PV_eig],\
      index = ['C_CHP_FIT', 'C_CHP_ex', 'C_gas', 'C_grid_el', 'C_CHP_cs', 'C_PV_FIT', 'C_PV_eig'])
-     print '----------------------------'     
-     print '       Kosten:'
-     print '----------------------------'     
-     print Costs   
+     print ('----------------------------')
+     print ('       Kosten:')
+     print ('----------------------------')
+     print (Costs   )
 
      PV_TOT_df.to_csv('Results\INPUTPV.csv')                        
      LoadAll_TOT_df.to_csv('Results\INPUTLoad.csv')                        
@@ -157,18 +157,18 @@ def inputvalues_VDE_EFH(Delta_t,  TimeStepSize,year_stamps):
  
 def inputvalues_LPG_EFH(Delta_t,  TimeStepSize,year_stamps):          
  
-     print " Use PV and Load from LPG ! "
+     print (" Use PV and Load from LPG ! ")
      #-------------------------------------------------  
      # SIMONS- StromWärmelastgenerator Mai 2017
      #-------------------------------------------------  
      Q_DHWLoad_SD = pd.read_pickle("INPUT/dhw_SFH_Kassel_1970_14")     #df
      Q_SHLoad_SD = pd.read_pickle("INPUT/sh_SFH_Kassel_1970_14")     #tuple
      E_Load_SD = pd.read_pickle("INPUT/el_SFH_Kassel_1970_14")     #array-tuples            
-     print Q_SHLoad_SD[0].shape
+     print (Q_SHLoad_SD[0].shape)
  
      # ---- Running mean zur Beachtung der Trägheit des Gebäudes
      #N = 1  # Durchschnittszeitraum für Heizmittelwert
-     #print Q_DHWLoad_SD #[kW Durchschnitt pro 10 min bins]
+     #print (Q_DHWLoad_SD #[kW Durchschnitt pro 10 min bins]
      QLoad1_df = Q_DHWLoad_SD
      QLoad2_df = Q_SHLoad_SD[0]
      #QLoad2_df = running_mean(Q_SHLoad_SD[0].values, N)            running average
@@ -176,7 +176,7 @@ def inputvalues_LPG_EFH(Delta_t,  TimeStepSize,year_stamps):
   
      QLoad1_df.columns=['QLoad1']  
      QLoad2_df.columns=['QLoad2']
-     #print Q_SHLoad_SD[0] #[kW Durchschnitt pro 10 min bins]
+     #print (Q_SHLoad_SD[0] #[kW Durchschnitt pro 10 min bins]
      ELoad_SD = np.mean(E_Load_SD[0].reshape(-1,10),axis = 1)
      ELoad_df = pd.DataFrame(ELoad_SD, index=year_stamps, columns=['ELoad'])
           
@@ -238,15 +238,15 @@ def inputvalues_LPG_EFH(Delta_t,  TimeStepSize,year_stamps):
      P_batt_dis_max,SOC_batt_ini, Cap_batt, SOC_batt_max, SOC_batt_min], \
      index=['eta_batt_sd','eta_batt_char','eta_batt_dis' ,'K_batt', 'P_batt_char_max' ,\
      'P_batt_dis_max','SOC_batt_ini', 'Cap_batt', 'SOC_batt_max', 'SOC_batt_min'])
-     print '----------------------------'     
-     print '     Battery parameter:'
-     print '----------------------------'     
-     print Battery
-     print '----------------------------'     
-     print '     Load and PV:           '
-     print '----------------------------'     
-     print 'P_PV_max:', P_PV_max
-     print 'P_Load_max:', P_Load_max
+     print ('----------------------------'   )
+     print ('     Battery parameter:')
+     print ('----------------------------'   )
+     print (Battery)
+     print ('----------------------------'    )
+     print ('     Load and PV:           ')
+     print ('----------------------------' )
+     print ('P_PV_max:', P_PV_max)
+     print ('P_Load_max:', P_Load_max)
                                      
          # ---------------------------------------------    
      #       Kosten 
@@ -299,10 +299,10 @@ def inputvalues_LPG_EFH(Delta_t,  TimeStepSize,year_stamps):
      
      Costs = pd.Series([C_CHP_FIT, C_CHP_ex, C_gas, C_grid_el, C_CHP_cs, C_PV_FIT, C_PV_eig],\
      index = ['C_CHP_FIT', 'C_CHP_ex', 'C_gas', 'C_grid_el', 'C_CHP_cs', 'C_PV_FIT', 'C_PV_eig'])
-     print '----------------------------'     
-     print '       Kosten:'
-     print '----------------------------'     
-     print Costs   
+     print ('----------------------------'     )
+     print ('       Kosten:')
+     print ('----------------------------')
+     print (Costs   )
 
      PV_TOT_df.to_csv('Results\INPUTPV.csv')                        
      LoadAll_TOT_df.to_csv('Results\INPUTLoad.csv')                        

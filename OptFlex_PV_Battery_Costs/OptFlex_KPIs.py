@@ -42,10 +42,10 @@ def Calc_KPI(Result_BAT_End, Result_PV_End, Result_Grid_End,\
     index = ['totalCost', 'totalGridExp', 'totalGridImp', 'totalPVExp', \
     'PVsc', 'totalPV', 'totalEcon',  'Autarcy', \
     'totalEff', 'BatteryCyc',  'SelfconsumptionPV'])
-    print '--------------------------------'     
-    print '  Key Performance Indicators:', PrHoBin
-    print '--------------------------------'     
-    print KPIs                                        
+    print ('--------------------------------'     )
+    print ('  Key Performance Indicators:', PrHoBin)
+    print ('--------------------------------'     )
+    print (KPIs                                    )
          
     KPIs.to_csv('Results\KPIs.csv')                                
 
@@ -57,5 +57,5 @@ if __name__ == '__main__':
     plt.close("all")
     Calc_KPI(1,2,3)
     
-    print "I am just a poor Calculator without any idea of running.\
-    Please ask my friend OptFlex_MPC!"    
+    print ("I am just a poor Calculator without any idea of running.\
+    Please ask my friend OptFlex_MPC!"    )

@@ -48,16 +48,16 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                 index=['Load', 'LoadSupply','QLoad', 'EHeatQStor', 'GridLoad', 'PV', 'CHP', \
                 'CHP1','CHP2','QStor','EStor' ,'SellToGrid' ,'NGBurner' ,\
                 'NGBurner1' ,'NGBurner2','NGBurner3'])
-    print NoYes
+    print (NoYes)
     
     plotEFlows = 1
     plotAnalyses = 0
         
     maxxSim = maxx #len(LoadPeriodFore['ELoad'])
     n_days = maxxSim/144            # 10min
-    #print n_days    
+    #print (n_days
     #--------------------------------------
-    #print PVBurnerWeek
+    #print (PVBurnerWeek
     #Fill= pd.DataFrame(np.zeros(maxx-maxxSim)) 
     PVProfile = PVavaPeriodFore['PV 2013, Kassel, 10min'][:maxx]
     EProfile = LoadPeriodFore['ELoad'][:maxx]
@@ -120,7 +120,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                 plt.xlabel('For ' +str(int(n_days))+ ' Days starting from '+str(date))
                 #plt.xticks(x_ticks)
                 #plt.xlim(0,7)
-                #print len(x_axis)
+                #print (len(x_axis)
                 SubPlotCounter=SubPlotCounter+1
                 if NoYes['EHeatQStor'] == 1:
                     plt.plot(x_axis,EProfile,label='E-Load, HH',linewidth=0.7)
@@ -130,7 +130,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                     plt.plot(x_axis,EProfile,label='load, gesamt',linewidth=0.7)                                 
                 if NoYes['GridLoad'] == 1: 
                      if NoYes['PV'] == 1 and NoYes['CHP'] == 1 and NoYes['EStor'] == 1: 
-                         print 'PV, CHP, Batt'
+                         print ('PV, CHP, Batt')
 #                        fcolors=[CPV2Load, CCHP2Load, CBat2Load, CGridLoad]
 #                         plt.stackplot(x_axis,PV2LoadWeek,CHP2LoadWeek,Bat2LoadWeek,GridLoadWeek,colors=fcolors)  
 #                         plt.plot([], [], color=CPV2Load, linewidth=10, label='PV-Direct consumption')
@@ -154,7 +154,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                          plt.stackplot(x_axis,PV2LoadWeek,GridLoadWeek,colors=fcolors)  
                          plt.plot([], [], color=CPV2Load, linewidth=10, label='PV-Direct consumption')
                          plt.plot([], [], color=CGridLoad, linewidth=10, label='Grid consumption')     
-                         print "PV"
+                         print ("PV")
  #                    elif NoYes['PV'] == 0 and NoYes['CHP'] == 1 and NoYes['EStor'] == 1:
  #                        fcolors=[CCHP2Load, CBat2Load, CGridLoad]
  #                        plt.stackplot(x_axis,CHP2LoadWeek,Bat2LoadWeek,GridLoadWeek,colors=fcolors)  
@@ -176,7 +176,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                          plt.stackplot(x_axis,GridLoadWeek,colors=fcolors)  
                          plt.plot([], [], color=CGridLoad, linewidth=10, label='Grid consumption')  
                 else:
-                    print 'Off-Grid not implemented'                         
+                    print ('Off-Grid not implemented'    )
             plt.legend(loc='center left',bbox_to_anchor=(1, 0.5))
 #--------------------------------------------------------------
 #  Load off Grid                    
@@ -232,10 +232,10 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                 plt.xlabel('For ' +str(int(n_days))+ ' Days starting from '+str(date))
                 #plt.xticks(x_ticks)
                 #plt.xlim(0,7)
-                #print len(x_axis)
+                #print (len(x_axis)
                 if NoYes['GridLoad'] == 1:                 
                      if NoYes['PV'] == 1 and NoYes['CHP'] == 1:
-                          print 'PV, CHP'
+                          print ('PV, CHP')
 #                          plt.plot(x_axis,(PVGridWeek+CHPGridWeek-GridLoadWeek),label='Grid exchange',linewidth=0.7) 
 #                          fcolors=[CPVGrid, CCHPGrid, CGridLoad]
 #                         plt.stackplot(x_axis,PVGridWeek,CHPGridWeek,-GridLoadWeek,colors=fcolors)  
@@ -341,7 +341,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
           #           plt.xlabel('Days from '+str(date)+' to '+str(date_end))
          #            plt.xticks(x_ticks)
                      #plt.xlim(0,7)
-                     #print len(x_axis)
+                     #print (len(x_axis)
            
                      plt.legend(loc='center left',bbox_to_anchor=(1, 0.5))
 #                     
@@ -475,7 +475,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                      x_axis = LoadPeriod['ELoad'][:maxx].index
                  
                      if NoYes['PV'] == 1 and NoYes['CHP'] == 1:
-                         print 'PV, CHP'
+                         print ('PV, CHP')
 #                         fcolors=[CPV2Bat, CCHP2Bat, CBat2Load]                
 #                         plt.stackplot(x_axis,PV2BatWeek,CHP2BatWeek,-Bat2LoadWeek,colors=fcolors)                  
 #                         plt.plot([], [], color=CPV2Bat, linewidth=10, label='PV-Battery charging')

@@ -430,6 +430,6 @@ if __name__ == '__main__':
     plt.close("all")
     
 
-    print "I am just a poor Optimizer without any idea of running.\
-    Please ask my friend OptFlex_MPC!"
+    print ("I am just a poor Optimizer without any idea of running.\
+    Please ask my friend OptFlex_MPC!")
    
