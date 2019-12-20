@@ -23,6 +23,8 @@ Load, P_sh_th, P_dhw_th, Battery, Costs):
     #02.02.2015
     # Create a solver
     opt = SolverFactory('cplex')
+    opt = SolverFactory('glpk')
+
     model = AbstractModel() #Declare model of type Abstract
     #-----------------------------------------------------------------------
     # Prediction horizon 144 = 1 Tag, 72 = 12 Stunden 

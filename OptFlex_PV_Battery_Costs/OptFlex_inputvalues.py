@@ -39,7 +39,7 @@ def inputvalues_VDE_EFH(Delta_t,  TimeStepSize,year_stamps):
      # ------- Source: IWES roof 2013 10 min resolution, normalized to 1kWP, AC
      # ------------ 1day = 144
      P_PV_max = 3.2 #[kW]    # Normierung
-     PV = np.load("INPUT/PVAC2013Kassel_5clean.npy")  *  P_PV_max
+     PV = np.load("../INPUT/PVAC2013Kassel_5clean.npy")  *  P_PV_max
      # --------------- convert to Pandas Dataframe with TimeIndex ------
      PV_TOT_df = pd.DataFrame(PV, index=year_stamps, columns=['PV 2013, Kassel, 10min'])
      
@@ -161,9 +161,9 @@ def inputvalues_LPG_EFH(Delta_t,  TimeStepSize,year_stamps):
      #-------------------------------------------------  
      # SIMONS- StromWärmelastgenerator Mai 2017
      #-------------------------------------------------  
-     Q_DHWLoad_SD = pd.read_pickle("INPUT/dhw_SFH_Kassel_1970_14")     #df
-     Q_SHLoad_SD = pd.read_pickle("INPUT/sh_SFH_Kassel_1970_14")     #tuple
-     E_Load_SD = pd.read_pickle("INPUT/el_SFH_Kassel_1970_14")     #array-tuples            
+     Q_DHWLoad_SD = pd.read_pickle("../INPUT/dhw_SFH_Kassel_1970_14")     #df
+     Q_SHLoad_SD = pd.read_pickle("../INPUT/sh_SFH_Kassel_1970_14")     #tuple
+     E_Load_SD = pd.read_pickle("../INPUT/el_SFH_Kassel_1970_14")     #array-tuples
      print (Q_SHLoad_SD[0].shape)
  
      # ---- Running mean zur Beachtung der Trägheit des Gebäudes
@@ -195,7 +195,7 @@ def inputvalues_LPG_EFH(Delta_t,  TimeStepSize,year_stamps):
      # ------- Source: IWES roof 2013 10 min resolution, normalized to 1kWP, AC
      # ------------ 1day = 144
      P_PV_max = 3.2 #[kW]    # Normierung
-     PV = np.load("INPUT/PVAC2013Kassel_5clean.npy")  *  P_PV_max
+     PV = np.load("../INPUT/PVAC2013Kassel_5clean.npy")  *  P_PV_max
      # --------------- convert to Pandas Dataframe with TimeIndex ------
      PV_TOT_df = pd.DataFrame(PV, index=year_stamps, columns=['PV 2013, Kassel, 10min'])
      
