@@ -1,4 +1,4 @@
-# Prosumer
+# OptimizedProsumer
 MILP/ModelPredictiveControl for a single family home
 (you need Inputfiles in addition to the code, which are unfortunatlely too big for github)
 
@@ -14,8 +14,7 @@ Batt - Battery
 And I optimized for different cost funtions
 costs - operational costs
 Co2 - Co2 emission
-self-consumption
-minimal grid interaction
+OffGrid - minimal grid interaction
 
 for more information read my papers in Applied Energy
 
