@@ -52,7 +52,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                 'CHP1','CHP2','QStor','EStor' ,'SellToGrid' ,'NGBurner' ,\
                 'NGBurner1' ,'NGBurner2','NGBurner3'])
                
-#    print NoYes
+#    print ( NoYes
     
     plotEFlows = 1
 
@@ -60,9 +60,9 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
     #maxxSim = len(LoadPeriod['ELoad'])
     maxxSim = maxx
     n_days = maxxSim/144            # 10min
-    #print n_days    
+    #print ( n_days
     #--------------------------------------
-    #print PVBurnerWeek
+    #print ( PVBurnerWeek
     #Fill= pd.DataFrame(np.zeros(maxx-maxxSim)) 
     PVProfile = PVavaPeriod['PV 2013, Kassel, 10min'][:maxx]
     EHeater_el = Result_Heat_End['EHeater th'][:maxx] 
@@ -134,7 +134,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                 plt.xlabel('For ' +str(int(n_days))+ ' Days starting from '+str(date))
                 #plt.xticks(x_ticks)
                 #plt.xlim(0,7)
-                #print len(x_axis)
+                #print ( len(x_axis)
                         
                 SubPlotCounter=SubPlotCounter+1
                 if NoYes['EHeatQStor'] == 1:
@@ -156,7 +156,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                          plt.stackplot(x_axis,PV2LoadWeek,GridLoadWeek,colors=fcolors)  
                          plt.plot([], [], color=CPV2Load, linewidth=10, label='PV-Direct consumption')
                          plt.plot([], [], color=CGridLoad, linewidth=10, label='Grid consumption')     
-                         print "PV"
+                         print ( "PV")
                      elif NoYes['PV'] == 0 and NoYes['CHP'] == 0 and NoYes['EStor'] == 1:
                          fcolors=[CBat2Load, CGridLoad]
                          plt.stackplot(x_axis,Bat2LoadWeek,GridLoadWeek,colors=fcolors)  
@@ -167,7 +167,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                          plt.stackplot(x_axis,GridLoadWeek,colors=fcolors)  
                          plt.plot([], [], color=CGridLoad, linewidth=10, label='Grid consumption')  
                 else:
-                    print 'Off-Grid not implemented'                         
+                    print ( 'Off-Grid not implemented')
             plt.legend(loc='center left',bbox_to_anchor=(1, 0.5))
 #--------------------------------------------------------------
 #  Load off Grid                    
@@ -223,7 +223,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                 plt.xlabel('For ' +str(int(n_days))+ ' Days starting from '+str(date))
                 #plt.xticks(x_ticks)
                 #plt.xlim(0,7)
-                #print len(x_axis)
+                #print ( len(x_axis)
                 if NoYes['GridLoad'] == 1:                 
                      if NoYes['PV'] == 1 and NoYes['CHP'] == 0:
                          plt.plot(x_axis,(PVGridWeek-GridLoadWeek),label='Grid exchange',linewidth=0.7) 
@@ -317,7 +317,7 @@ def Plotting(Result_Grid_End, Result_BAT_End, Result_PV_End,\
                      #x_axis = LoadPeriod['ELoad'].index
                      #plt.xticks(x_ticks)
                      #plt.xlim(0,7)
-                     #print len(x_axis)
+                     #print ( len(x_axis)
            
                      plt.legend(loc='center left',bbox_to_anchor=(1, 0.5))
                      

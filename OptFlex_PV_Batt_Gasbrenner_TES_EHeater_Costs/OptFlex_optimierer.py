@@ -24,7 +24,8 @@ Auxilary, ThermalStorage, EHeater, Costs):
  
     #02.02.2015
     # Create a solver
-    opt = SolverFactory('cplex')
+    #opt = SolverFactory('cplex')
+    opt = SolverFactory('glpk')
     model = AbstractModel() #Declare model of type Abstract
     #-----------------------------------------------------------------------
     # Prediction horizon 144 = 1 Tag, 72 = 12 Stunden 
@@ -661,6 +662,6 @@ if __name__ == '__main__':
     plt.close("all")
     
 
-    print "I am just a poor Optimizer without any idea of running.\
-    Please ask my friend OptFlex_MPC!"
+    print ("I am just a poor Optimizer without any idea of running.\
+    Please ask my friend OptFlex_MPC!")
    

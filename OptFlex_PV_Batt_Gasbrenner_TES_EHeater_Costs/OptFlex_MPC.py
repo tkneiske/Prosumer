@@ -36,13 +36,13 @@ def MPC():
     date_year = '1/1/2013'
     PrHoBin = 72;      
     #-----------------------------------------------
-    
-    print '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
-    print '%                                                  %'
-    print '%         Optimierung von CHP, TES, GASboiler      %'     
-    print '%         PV, Battery, EHeater nach KOSTEN         %'     
-    print '%                                                  %'
-    print '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+
+    print ('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+    print ('%                                                  %')
+    print ('%         Optimierung von TES, GASboiler      %'    )
+    print ('%         PV, Battery, EHeater nach KOSTEN         %' )
+    print ('%                                                  %')
+    print ('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
     
 
     
@@ -50,7 +50,7 @@ def MPC():
     helpdf = pd.date_range(start_date, end_date, freq='D') 
     numberOfdays = len(helpdf)
     if numberOfdays <= 0:
-        print 'ERROR: Dates are wrong. Please check. Calculating days in August....'
+        print ('ERROR: Dates are wrong. Please check. Calculating days in August....')
         start_date = '8/11/2013'    
         end_date = '8/12/2013'
 
@@ -60,11 +60,11 @@ def MPC():
         year_bins = 52560
         PrHoBinRange = range(0, PrHoBin)  # PredHorizonBin
     else:
-        print 'ERROR: Implemented only for 10 min Bins.'
+        print ('ERROR: Implemented only for 10 min Bins.')
                 
-    print 'Calculating the time period: ', start_date, 'to', end_date
-    print 'for', numberOfdays, 'days'
-    print 'Year: ', date_year
+    print ('Calculating the time period: ', start_date, 'to', end_date)
+    print ('for', numberOfdays, 'days')
+    print ('Year: ', date_year)
     year_stamps = pd.date_range(date_year, periods=year_bins, freq=TimeStepSize)  
                     
     # -------------------------------------------------------------------------
@@ -81,7 +81,7 @@ def MPC():
 #        PVava_TOT_df, P_PV_max,P_Load_max, LoadAll_TOT_df, Battery, Costs \
 #        = ipv.inputvalues_LPG_EFH(Delta_t, TimeStepSize,year_stamps)
 #    else:
-#        print ("ERROR ---- inputFile in Main is not correct")
+#        print (("ERROR ---- inputFile in Main is not correct")
    
 
     # -------------------------------------------------------------------------
@@ -155,11 +155,11 @@ def MPC():
     
     maxx = len(LoadPeriodFore)-PrHoBin
     if len(LoadPeriodFore)-PrHoBin < 0:
-        print 'Prediction Horizon out of Range!!!'
+        print ('Prediction Horizon out of Range!!!')
     else:        
         maxx =  160#144
         for timestep in range(0, maxx):    
-            print timestep, maxx
+            print (timestep, maxx)
             # -----------------------------------------------------------------            
             # ------------------ Initialize for the next step ---------------------
             # -----------------------------------------------------------------            
@@ -226,9 +226,9 @@ def MPC():
             # -----------------------------------------------------------------            
             Battery['SOC_batt_ini'] = Opt_Result['SOC_batt'][Opt_Result.index[0]] 
             ThermalStorage['SOC_TES_ini'] = Opt_Result['SOC_TES'][Opt_Result.index[0]]  
-       #     print " ------------>  SOC"
-       #     print Opt_Result['SOC_batt'] 
-       #     print Battery['SOC_batt_ini'], ThermalStorage['SOC_TES_ini']             
+       #     print (" ------------>  SOC"
+       #     print (Opt_Result['SOC_batt']
+       #     print (Battery['SOC_batt_ini'], ThermalStorage['SOC_TES_ini']
          
             # -----------------------------------------------------------------            
             # --- Sammle Eintröge[0] für Gesamtergebnis -----------------------
@@ -301,7 +301,7 @@ def MPC():
    # -----------------------------------------------------------------            
     # ------ KPIs -----------------------------------------------------    
     # -----------------------------------------------------------------            
-    print 'KPI_END are calculated with Forecast values !!!'    
+    print ('KPI_END are calculated with Forecast values !!!'    )
        # without ad-hoc, Fahrplan only
     kpi.Calc_KPI(Result_BAT_End, Result_PV_End, Result_Grid_End,\
     Result_TES_End, Result_Heat_End,\
@@ -317,7 +317,7 @@ def MPC():
     Result_TES_End.to_csv('Results\Kosten_Results_TES_End.csv')    
     Result_Heat_End.to_csv('Results\Kosten_Results_Heat_End.csv')  
  
-    print "The End!"
+    print ("The End!")
     return 0
     
 if __name__ == '__main__':

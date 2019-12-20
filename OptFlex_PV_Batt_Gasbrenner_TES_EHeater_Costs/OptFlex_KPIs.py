@@ -53,10 +53,10 @@ def Calc_KPI(Result_BAT_End, Result_PV_End, Result_Grid_End,\
     'totalEcon [kWh]', 'totalQcon [kWh]', 'totalAUX [kWh]','Autarcy [%]', \
     'totalEff ?', 'BatteryCyc ', 'SelfconsumptionPV [%]', 'totalEHeaterel [kWh]',  'totalEHeaterth[kWh]'])
 
-    print '--------------------------------'     
-    print '  Key Performance Indicators:', PrHoBin
-    print '--------------------------------'     
-    print KPIs       
+    print ('--------------------------------'   )
+    print ('  Key Performance Indicators:', PrHoBin)
+    print ('--------------------------------'    )
+    print (KPIs       )
     KPIs.to_csv('Results\KPIs'+str(name)+'.csv')                                  
     
     return KPIs
