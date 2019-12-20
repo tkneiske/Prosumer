@@ -1,0 +1,13 @@
+Vol_S,0.3
+delta_T_S,20.0
+Water_c,0.001161111111111111
+Water_dens,990.0
+Cap_TES,6.897
+SOC_TES_max,100.0
+SOC_TES_min,0.0
+SOC_TES_ini,10.0
+K_TES,2.4165095935430863
+StandbyTES,1.9
+eta_TES_sd,0.9868055555555556
+eta_TES_char,0.9
+eta_TES_dis,0.92
