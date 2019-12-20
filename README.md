@@ -20,4 +20,5 @@ minimal grid interaction
 for more information read my papers in Applied Energy
 
 AdHoc - means a two level combined control ist used: (1) MPC (every 10 min) + (2) rule-based (within the 10 min)
+
 AdHocV - means a variable, two level combined control ist used: (1) MPC (every X min until the set-values of the SOCs are 10% off from the real values) + (2) rule-based (within the time period)
